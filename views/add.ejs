@@ -8,5 +8,30 @@
   </head>
   <body>
     <h1>Add Page</h1>
+    <form action="/add" method="POST">
+      <div class="input-field">
+        <label for="from">Please enter the start of the route</label>
+        <input id="from" name="from" type="text" class="validate" required />
+        <span class="helper-text" data-error="Please enter the start of the route"> </span>
+      </div>
+
+      <div class="input-field">
+        <label for="to">Please enter the end of the route</label>
+        <input id="to" name="to" type="text" class="validate" required />
+        <span class="helper-text" data-error="Please enter the end of the route"> </span>
+      </div>
+
+      <label for="start">Date:</label>
+      <input
+        type="datetime-local"
+        id="date"
+        name="trip_date"
+        value="2023-03-09T00:00"
+        min="2023-03-09T00:00"
+        max="2033-01-01T00:00"
+      />
+      <br />
+      <button type="submit">Add</button>
+    </form>
   </body>
 </html>

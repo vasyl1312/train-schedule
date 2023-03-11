@@ -4,6 +4,8 @@ const mongoose = require('mongoose')
 require('dotenv').config()
 const homeRoutes = require('./routes/home')
 const addRoutes = require('./routes/add')
+const editRoutes = require('./routes/edit')
+const deleteRoutes = require('./routes/delete')
 const errorMiddleware = require('./middleware/error')
 
 const PORT = process.env.PORT
@@ -17,6 +19,9 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use('/', homeRoutes)
 app.use('/add', addRoutes)
+app.use('/edit', editRoutes)
+app.use('/delete', deleteRoutes)
+
 app.use(errorMiddleware) //вкінці бо деякі роути будуть не доступні(для того щоб не можна на невідомі роути)
 
 const start = async () => {

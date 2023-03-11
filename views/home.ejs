@@ -15,7 +15,12 @@
       <p>From: <%= schedule.from %></p>
       <p>To: <%= schedule.to %></p>
       <p>Date: <%= schedule.trip_date %></p>
+      <a href="/edit/<%= schedule.id %>">Edit</a>
     </div>
+    <form action="delete/<%= schedule.id %>" method="POST">
+      <input type="hidden" name="scheduleId" value="<%= schedule._id %>" />
+      <button type="submit" class="btn btn-outline-dark mt-auto">Delete this schedule</button>
+    </form>
     <hr />
     <% }) %> <% } else {%>
     <h1>Empty</h1>

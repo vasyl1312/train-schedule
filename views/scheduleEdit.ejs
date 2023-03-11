@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit</title>
+  </head>
+  <body>
+    <form action="/edit" method="POST">
+      <div class="input-field">
+        <label for="from">From</label>
+        <br />
+        <input
+          id="from"
+          name="from"
+          type="text"
+          class="validate"
+          required
+          value="<%= schedule.from %>"
+        />
+      </div>
+
+      <div class="input-field">
+        <label for="to">To</label>
+        <br />
+        <input id="to" name="to" type="text" class="validate" required value="<%= schedule.to %>" />
+      </div>
+
+      <label for="start">Date: <%= schedule.trip_date%></label>
+      <br />
+      <input
+        type="datetime-local"
+        id="date"
+        name="trip_date"
+        value="<%= schedule.trip_date%>"
+        min="2023-03-15T00:00"
+        max="2033-01-01T00:00"
+      />
+
+      <!-- id, that to know, which schedule we have to edit-->
+      <input type="hidden" name="id" value="<%= schedule.id %>" />
+      <br />
+      <button class="btn btn-primary">Update schedule</button>
+    </form>
+  </body>
+</html>

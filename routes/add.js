@@ -9,8 +9,8 @@ router.get('/', (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const { from, to, trip_date } = req.body
-    const schedule = new Schedule({ from, to, trip_date })
 
+    const schedule = new Schedule({ from, to, trip_date })
     await schedule.save()
     return res.redirect('/')
   } catch (e) {

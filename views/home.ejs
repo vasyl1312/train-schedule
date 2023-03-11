@@ -9,21 +9,39 @@
   <body>
     <h1>Home Page</h1>
     <a href="/add">Add new</a>
+    <input
+      type="text"
+      id="myInput"
+      onkeyup="myFunction()"
+      placeholder="Search..."
+      title="Type in a city"
+    />
     <hr />
     <%if (schedules.length > 0) { %> <% schedules.forEach((schedule)=> { %>
-    <div>
-      <p>From: <%= schedule.from %></p>
-      <p>To: <%= schedule.to %></p>
-      <p>Date: <%= schedule.trip_date %></p>
-      <a href="/edit/<%= schedule.id %>">Edit</a>
+    <div class="schedules">
+      <ul id="schedule">
+        <div class="schedules" data-date="<%= schedule.trip_date.toLocaleString() %>">
+          <li>
+            <a href="#">From:<%= schedule.from %> To:<%= schedule.to %> </a>
+            <p>Date: <%= schedule.trip_date.toLocaleString() %></p>
+
+            <form action="/edit/<%= schedule.id %>" method="GET">
+              <button type="submit">Edit</button>
+            </form>
+
+            <form action="delete/<%= schedule.id %>" method="POST">
+              <input type="hidden" name="scheduleId" value="<%= schedule._id %>" />
+              <button type="submit">Delete</button>
+            </form>
+            <hr />
+          </li>
+        </div>
+      </ul>
     </div>
-    <form action="delete/<%= schedule.id %>" method="POST">
-      <input type="hidden" name="scheduleId" value="<%= schedule._id %>" />
-      <button type="submit" class="btn btn-outline-dark mt-auto">Delete this schedule</button>
-    </form>
-    <hr />
+
     <% }) %> <% } else {%>
     <h1>Empty</h1>
     <%}%>
+    <script src="./scripts.js"></script>
   </body>
 </html>

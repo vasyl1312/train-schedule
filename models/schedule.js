@@ -3,17 +3,17 @@ const { Schema, model } = require('mongoose')
 const scheduleSchema = new Schema({
   from: {
     type: String,
-    required: true, //позначаємо що це поле є обов'язковим
+    required: true,
   },
 
   to: {
     type: String,
-    required: true, //позначаємо що це поле є обов'язковим
+    required: true,
   },
 
   trip_date: {
     type: Date,
-    required: true, //позначаємо що це поле є обов'язковим
+    required: true,
   },
 })
 
